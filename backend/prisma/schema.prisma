@@ -1,0 +1,184 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique
+  email         String   @unique
+  password      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  createdCards  Card[]
+  memberBoards  BoardMember[]
+  createdBoards Board[]  @relation("BoardsCreatedByUser")
+  assignedCards CardMember[]
+  addedBoardMembers BoardMember[] @relation("AddedBoardMembers")
+  addedCardMembers  CardMember[]  @relation("AddedCardMembers")
+  addedCardTags     CardTag[]     @relation("AddedCardTags")
+  addedChecklists   CardChecklist[] @relation("AddedChecklists")
+  addedChecklistItems CardChecklistItem[] @relation("AddedChecklistItems")
+  addedAttachments  CardAttachment[] @relation("AddedAttachments")
+  performedActions  CardAction[]  @relation("UserActions")
+}
+
+model Board {
+  id            Int            @id @default(autoincrement())
+  title         String
+  description   String?
+  visibility    BoardVisibility
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  userId        Int
+  user          User           @relation(fields: [userId], references: [id], name: "BoardsCreatedByUser")
+  members       BoardMember[]
+  lists         BoardList[]
+}
+
+model BoardList {
+  id        Int       @id @default(autoincrement())
+  title     String
+  position  Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  boardId   Int
+  board     Board     @relation(fields: [boardId], references: [id])
+  cards     Card[]
+}
+
+model BoardMember {
+  id        Int       @id @default(autoincrement())
+  role      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  boardId   Int
+  userId    Int
+  addedById Int
+  board     Board     @relation(fields: [boardId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+  addedBy   User      @relation(fields: [addedById], references: [id], name:"AddedBoardMembers")
+
+  @@unique([boardId, userId])
+}
+
+model Card {
+  id          Int         @id @default(autoincrement())
+  title       String
+  description String?
+  startDate   DateTime?
+  endDate     DateTime?
+  position    Int
+  archived    Boolean @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  listId      Int
+  list        BoardList   @relation(fields: [listId], references: [id])
+  tags        CardTag[]
+  attachments CardAttachment[]
+  checklists  CardChecklist[]
+  userId      Int
+  createdBy   User        @relation(fields: [userId], references: [id])
+  members     CardMember[]
+  actions     CardAction[]
+}
+
+model CardMember {
+  id        Int      @id @default(autoincrement())
+  cardId    Int
+  userId    Int
+  addedById Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  card      Card     @relation(fields: [cardId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+  addedBy   User     @relation(fields: [addedById], references: [id], name: "AddedCardMembers")
+
+  @@unique([cardId, userId])
+}
+
+model Tag {
+  id    Int      @id @default(autoincrement())
+  name  String
+  color String
+  cards CardTag[]
+}
+
+model CardTag {
+  id        Int      @id @default(autoincrement())
+  cardId    Int
+  tagId     Int
+  addedById Int
+  card      Card     @relation(fields: [cardId], references: [id])
+  tag       Tag      @relation(fields: [tagId], references: [id])
+  addedBy   User     @relation(fields: [addedById], references: [id], name: "AddedCardTags")
+
+  @@unique([cardId, tagId])
+}
+
+model CardChecklist {
+  id        Int      @id @default(autoincrement())
+  title     String
+  position  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cardId    Int
+  addedById Int
+  card      Card     @relation(fields: [cardId], references: [id])
+  items     CardChecklistItem[]
+  addedBy   User     @relation(fields: [addedById], references: [id], name: "AddedChecklists")
+}
+
+model CardChecklistItem {
+  id          Int      @id @default(autoincrement())
+  title       String
+  completed   Boolean
+  position    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  checklistId Int
+  addedById   Int
+  checklist   CardChecklist @relation(fields: [checklistId], references: [id])
+  addedBy     User          @relation(fields: [addedById], references: [id], name: "AddedChecklistItems")
+}
+
+model CardAttachment {
+  id        Int      @id @default(autoincrement())
+  url       String
+  type      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cardId    Int
+  addedById Int
+  card      Card     @relation(fields: [cardId], references: [id])
+  addedBy   User     @relation(fields: [addedById], references: [id], name: "AddedAttachments")
+}
+
+model ActionType {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String
+  actions     CardAction[]
+}
+
+model CardAction {
+  id          Int      @id @default(autoincrement())
+  actionTypeId Int
+  actionType  ActionType @relation(fields: [actionTypeId], references: [id])
+  parameters  Json
+  createdAt   DateTime @default(now())
+  cardId      Int
+  userId      Int
+  card        Card     @relation(fields: [cardId], references: [id])
+  user        User     @relation("UserActions", fields: [userId], references: [id])
+}
+
+enum BoardVisibility {
+  PUBLIC
+  PRIVATE
+  PRIVATE_INVITATION_ONLY
+}
