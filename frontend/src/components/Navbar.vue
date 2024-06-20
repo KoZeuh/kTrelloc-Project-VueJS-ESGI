@@ -1,7 +1,7 @@
 <template>
   <div class="fixed w-full z-30 flex bg-white dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
     <div class="logo ml-12 dark:text-white transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
-      kTrello
+      kTrelloc
     </div>
     <div class="grow h-full flex items-center justify-center"></div>
     <div class="flex-none h-full text-center flex items-center justify-center">

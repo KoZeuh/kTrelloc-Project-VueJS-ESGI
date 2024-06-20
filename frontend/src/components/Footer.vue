@@ -7,7 +7,7 @@
       <a href="#" class="font-medium text-white">{{ $t('footer.privacyPolicy') }}</a>
       <a href="#" class="font-medium text-white">{{ $t('footer.termsAndConditions') }}</a>
     </nav>
-    <p class="py-10 text-center text-gray-300">© 2024 kTrello | {{ $t('footer.copyright.allRightsReserved') }}</p>
+    <p class="py-10 text-center text-gray-300">© 2024 kTrelloc | {{ $t('footer.copyright.allRightsReserved') }}</p>
   </footer>
 
 </template>

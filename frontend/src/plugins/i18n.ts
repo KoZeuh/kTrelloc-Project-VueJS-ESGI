@@ -79,12 +79,12 @@ const i18n = createI18n({
             },
 
             register: {
-                title: "Were are the kTrello Team",
+                title: "Were are the kTrelloc Team",
                 pleaseRegisterAnAccount: "Please register an account",
                 termsAndConditions: "Terms and Conditions",
                 
                 company: {
-                    title: 'We are the kTrello Team',
+                    title: 'We are the kTrelloc Team',
                     description: 'We are a team of passionate developers working together to create quality web and mobile applications.',
                 }
             },
@@ -256,12 +256,12 @@ const i18n = createI18n({
             },
 
             register: {
-                title: "Nous sommes l'équipe kTrello",
+                title: "Nous sommes l'équipe kTrelloc",
                 pleaseRegisterAnAccount: "Veuillez créer un compte",
                 termsAndConditions: "Conditions d'utilisation",
                 
                 company: {
-                    title: 'Nous sommes l\'équipe kTrello',
+                    title: 'Nous sommes l\'équipe kTrelloc',
                     description: 'Nous sommes une équipe de développeurs passionnés qui travaillent ensemble pour créer des applications web et mobiles de qualité.',
                 }
             },
@@ -431,12 +431,12 @@ const i18n = createI18n({
             },
         
             register: {
-                title: "Somos el equipo de kTrello",
+                title: "Somos el equipo de kTrelloc",
                 pleaseRegisterAnAccount: "Por favor, regístrate",
                 termsAndConditions: "Términos y condiciones",
                 
                 company: {
-                    title: 'Somos el equipo de kTrello',
+                    title: 'Somos el equipo de kTrelloc',
                     description: 'Somos un equipo de desarrolladores apasionados que trabajan juntos para crear aplicaciones web y móviles de calidad.',
                 }
             },
@@ -607,12 +607,12 @@ const i18n = createI18n({
             },
         
             register: {
-                title: "Wir sind das kTrello-Team",
+                title: "Wir sind das kTrelloc-Team",
                 pleaseRegisterAnAccount: "Bitte registrieren Sie ein Konto",
                 termsAndConditions: "Allgemeine Geschäftsbedingungen",
                 
                 company: {
-                    title: 'Wir sind das kTrello-Team',
+                    title: 'Wir sind das kTrelloc-Team',
                     description: 'Wir sind ein Team von leidenschaftlichen Entwicklern, die gemeinsam hochwertige Web- und Mobile-Anwendungen erstellen.',
                 }
             },
@@ -783,12 +783,12 @@ const i18n = createI18n({
             },
         
             register: {
-                title: "Siamo il team di kTrello",
+                title: "Siamo il team di kTrelloc",
                 pleaseRegisterAnAccount: "Si prega di registrare un account",
                 termsAndConditions: "Termini e condizioni",
                 
                 company: {
-                    title: 'Siamo il team di kTrello',
+                    title: 'Siamo il team di kTrelloc',
                     description: 'Siamo un team di sviluppatori appassionati che lavorano insieme per creare applicazioni web e mobile di qualità.',
                 }
             },
@@ -959,12 +959,12 @@ const i18n = createI18n({
             },
         
             register: {
-                title: "Somos a equipe kTrello",
+                title: "Somos a equipe kTrelloc",
                 pleaseRegisterAnAccount: "Por favor, registre uma conta",
                 termsAndConditions: "Termos e Condições",
                 
                 company: {
-                    title: 'Somos a equipe kTrello',
+                    title: 'Somos a equipe kTrelloc',
                     description: 'Somos uma equipe de desenvolvedores apaixonados que trabalham juntos para criar aplicações web e móveis de qualidade.',
                 }
             },
