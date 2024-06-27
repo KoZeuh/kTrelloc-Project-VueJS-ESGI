@@ -33,7 +33,7 @@
 
                 <div class="relative text-blue-600 lg:ml-32 lg:w-1/2 hidden lg:block">
                     <div class="border-b-8 border-b-blue-600 max-w-lg mx-auto mb-10">
-                        <img class="w-full h-full object-contain" src="https://camo.githubusercontent.com/4bcb0fadea6abba39a4c74d1ed1dfba4722352d99736bddcfc315f053c1cdcee/68747470733a2f2f6b6f7a6575682d6465762e66722f696d616765732f62616e6e65722e6769663f7261773d74727565" alt=""/>
+                        <img class="w-full h-full object-contain" src="https://github.com/KoZeuh/kTrelloc-Project-VueJS-ESGI/raw/main/logo.gif" alt=""/>
                     </div>
                 </div>
             </div>

@@ -57,8 +57,8 @@ const i18n = createI18n({
             },
 
             home: {
-                title: 'Learning model of the future',
-                subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.',
+                title: 'The Future of Trello',
+                subtitle: 'A simple and intuitive project management platform for teams of all sizes.',
 
                 firstCard: {
                     title: 'Great Achievements',
@@ -234,8 +234,8 @@ const i18n = createI18n({
             },
 
             home: {
-                title: 'Modèle d\'apprentissage du futur',
-                subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.',
+                title: 'Le futur de Trello',
+                subtitle: 'Une plateforme de gestion de projet simple et intuitive pour les équipes de toutes tailles.',
 
                 firstCard: {
                     title: 'Grands accomplissements',
@@ -409,8 +409,8 @@ const i18n = createI18n({
             },
         
             home: {
-                title: 'Modelo de aprendizaje del futuro',
-                subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.',
+                title: 'El futuro de Trello',
+                subtitle: 'Una plataforma de gestión de proyectos simple e intuitiva para equipos de todos los tamaños.',
         
                 firstCard: {
                     title: 'Grandes Logros',
@@ -585,8 +585,8 @@ const i18n = createI18n({
             },
         
             home: {
-                title: 'Lernmodell der Zukunft',
-                subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.',
+                title: 'Die Zukunft von Trello',
+                subtitle: 'Eine einfache und intuitive Projektmanagementplattform für Teams jeder Größe.',
         
                 firstCard: {
                     title: 'Große Erfolge',
@@ -761,8 +761,8 @@ const i18n = createI18n({
             },
         
             home: {
-                title: 'Modello di apprendimento del futuro',
-                subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.',
+                title: 'Il futuro di Trello',
+                subtitle: 'Una piattaforma di gestione progetti semplice e intuitiva per team di tutte le dimensioni.',
         
                 firstCard: {
                     title: 'Grandi Successi',
@@ -937,8 +937,8 @@ const i18n = createI18n({
             },
         
             home: {
-                title: 'Modelo de aprendizado do futuro',
-                subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque it.',
+                title: 'O Futuro do Trello',
+                subtitle: 'Uma plataforma de gerenciamento de projetos simples e intuitiva para equipes de todos os tamanhos.',
         
                 firstCard: {
                     title: 'Grandes Conquistas',

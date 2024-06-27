@@ -28,18 +28,18 @@
           </div>
 
           <div class="mt-7 flex flex-col gap-2">
-
+  
             <button
-                class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
+                class="cursor-not-allowed inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
                 src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub"
-                class="h-[18px] w-[18px] ">
+                class="h-[18px] w-[18px]" disabled>
               {{ $t('login.continueWith') }} GitHub
             </button>
 
             <button
-                class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
+                class="cursor-not-allowed inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
                 src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google"
-                class="h-[18px] w-[18px] ">{{ $t('login.continueWith') }} Google
+                class="h-[18px] w-[18px]" disabled>{{ $t('login.continueWith') }} Google
             </button>
           </div>
 
@@ -70,7 +70,7 @@
 
           <div class="mt-6 text-center text-sm text-slate-600">
             {{ $t('login.dontHaveAnAccount') }}
-            <a href="/register" class="font-medium text-[#4285f4]">{{ $t('login.signup') }}</a>
+            <a href="javascript:void(0)" @click="openRegisterModal" class="font-medium text-[#4285f4]">{{ $t('login.signup') }}</a>
           </div>
         </div>
       </div>
@@ -88,14 +88,14 @@
 
   export default defineComponent({
     name: 'LoginModal',
-    components: {Popup},
+    components: { Popup },
     props: {
       isVisible: {
         type: Boolean,
         required: true,
       },
     },
-    emits: ['close'],
+    emits: ['close', 'signup'],
     setup(props, { emit }) {
       const store = useStore();
       const email = ref('');
@@ -106,6 +106,10 @@
 
       const closeModal = () => {
         emit('close');
+      };
+
+      const openRegisterModal = () => {
+        emit('signup');
       };
 
       const handleLoginSubmit = async () => {
@@ -123,6 +127,7 @@
 
       return {
         closeModal,
+        openRegisterModal,
         handleLoginSubmit,
         email,
         password,
@@ -133,5 +138,4 @@
   });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

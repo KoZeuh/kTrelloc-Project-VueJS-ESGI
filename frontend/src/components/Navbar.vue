@@ -13,7 +13,8 @@
         <button @click="showLoginModal = true" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
           {{ $t('navbar.getStarted') }}
         </button>
-        <LoginModal :isVisible="showLoginModal" @close="showLoginModal = false" />
+        <LoginModal :isVisible="showLoginModal" @close="showLoginModal = false" @signup="openRegisterModal" />
+        <RegisterModal :isVisible="showRegisterModal" @close="showRegisterModal = false" />
       </div>
       <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
         <LanguageMenu @changeLanguage="handleChangeLanguage" />
@@ -39,6 +40,7 @@
   import { useI18n } from 'vue-i18n';
 
   import LoginModal from '@/components/modals/LoginModal.vue';
+  import RegisterModal from '@/components/modals/RegisterModal.vue';
   import UserProfileMenu from '@/components/navbar/UserProfileMenu.vue';
   import LanguageMenu from '@/components/navbar/LanguageMenu.vue';
   import Sidebar from '@/components/navbar/Sidebar.vue';
@@ -50,6 +52,7 @@
     name: 'Navbar',
     components: {
       LoginModal,
+      RegisterModal,
       UserProfileMenu,
       LanguageMenu,
       Sidebar,
@@ -63,6 +66,7 @@
       const { locale } = useI18n();
 
       const showLoginModal = ref(false);
+      const showRegisterModal = ref(false);
       const errorMessage = computed(() => store.getters.getError);
 
       onMounted(() => {
@@ -87,6 +91,11 @@
       const handleChangeLanguage = (language: string) => {
         locale.value = language;
         localStorage.setItem('language', language);
+      };
+
+      const openRegisterModal = () => {
+        showLoginModal.value = false;
+        showRegisterModal.value = true;
       };
 
       const initializeSidebar = () => {
@@ -165,8 +174,10 @@
         errorMessage,
         logout,
         showLoginModal,
+        showRegisterModal,
         currentBreadcrumb,
-        handleChangeLanguage
+        handleChangeLanguage,
+        openRegisterModal
       };
     },
   });

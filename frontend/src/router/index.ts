@@ -25,14 +25,6 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/register',
-    name: 'Register',
-    component: Register,
-    meta: {
-      breadcrumb: 'Register'
-    }
-  },
-  {
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
