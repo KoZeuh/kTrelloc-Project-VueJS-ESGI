@@ -4,10 +4,10 @@
             <h1 class="text-2xl font-bold px-6 md:px-0">{{ $t('settings.title') }}</h1>
             <ul class="flex border-b border-gray-300 text-sm font-medium mt-3 px-6 md:px-0">
                 <li class="mr-8 border-b-2 border-gray-800">
-                    <a href="#_" class="py-4 inline-block">{{ $t('settings.profileInfos') }}</a>
+                    <a href="javascript:void(0)" class="py-4 inline-block">{{ $t('settings.profileInfos') }}</a>
                 </li>
                 <li class="mr-8 hover:text-gray-500">
-                    <a href="#_" class="cursor-not-allowed py-4 inline-block">{{ $t('settings.security') }}</a>
+                    <a href="javascript:void(0)" class="cursor-not-allowed py-4 inline-block">{{ $t('settings.security') }}</a>
                 </li>
             </ul>
             <form @submit.prevent="handleUpdateProfile">
